@@ -6,7 +6,7 @@ To Start the application
 To pass any Environmental Variables while Starting the application
 1. Open Terminal
 2. Go to the folder containing the files
-3. Use "KEY+Value npm start" to run the application
+3. Use "KEY=Value npm start" to run the application
 
 To change the Environmental Variable by changing the code
 1. Open package.json file
