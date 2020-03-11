@@ -1,0 +1,6 @@
+mixin list (envVariable ={})
+    ul
+        each val, key in envVariable
+            if val
+                li #{key} : #{val}
+            
