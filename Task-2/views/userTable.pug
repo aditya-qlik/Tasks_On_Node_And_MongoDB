@@ -1,0 +1,25 @@
+include mixins/_userTable
+<!DOCTYPE html>
+html(lang="en")
+    head
+        style.
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                max-width: 100%;
+            }
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Offline Users
+    body
+        +userTable(userArray)
+        form(action="/admin/add")
+            input(type="submit", value="Add")

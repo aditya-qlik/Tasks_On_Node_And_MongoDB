@@ -1,0 +1,13 @@
+mixin userTable(usersDetail=[])
+    table
+        tr
+            th Name
+            th Age
+            th City
+            th State
+        each user in usersDetail
+            tr 
+                td user.name
+                td user.age
+                td user.city
+                td user.state
