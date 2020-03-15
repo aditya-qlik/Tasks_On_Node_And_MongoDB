@@ -16,3 +16,11 @@ html(lang="en")
     .inner
       h2  #{title}
       +addUsersForm()
+    script.
+        function validator() {
+            const age=documents.getElementById('#age').value;
+            if(isNaN()){
+                alert('Enter a Number');
+            }
+        }
+        documents.getElementById('#age').addEventListener('blur',validator);

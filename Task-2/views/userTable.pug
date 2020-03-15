@@ -1,14 +1,14 @@
-include mixins/_userTable
 <!DOCTYPE html>
 html(lang="en")
     head
         style.
-            button{
+            button, form {
                 display: inline-block flex;
                 justify-content: center;
                 justify-content: space-around;
                 flex-direction: row-reverse
             }
+
             table {
                 border-collapse: collapse;
                 width: 100%;
@@ -31,13 +31,24 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Offline Users
     body
-        +userTable(userArray)
+        if userArray.length != 0
+            table.users
+                tr
+                    th Name
+                    th Age
+                    th City
+                    th State
+                each user in userArray
+                    tr 
+                        td #{user.name}
+                        td #{user.age}
+                        td #{user.city}
+                        td #{user.state}
+        button(onClick="addUser()") Add
+        if userArray.length != 0
+            form(action="/user" method="POST")
+                input(type="submit", value="Remove Last")
         script.
             function addUser() {
                 window.location.href = '/admin';
-            }
-            function removeUser() {
-                userArray.pop();
-                window.location.href = '/user';
-
-            }
+            };

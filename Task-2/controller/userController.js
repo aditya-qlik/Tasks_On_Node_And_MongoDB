@@ -22,4 +22,9 @@ exports.showUsers = (req,res) => {
     res.render('userTable',{ userArray });
 };
 
+exports.removeUser = (req, res) => {
+    userArray.pop();
+    res.render('userTable',{ userArray });
+}
+
 exports.userArray;

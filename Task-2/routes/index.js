@@ -12,7 +12,7 @@ route.get('/admin', userController.addUser);
 route.post('/admin', catchErrors(userController.createUser));
 
 route.get('/user', userController.showUsers);
-route.post('/user', catchErrors(userController.showUsers));
+route.post('/user', catchErrors(userController.removeUser));
 
 
 module.exports = route;
