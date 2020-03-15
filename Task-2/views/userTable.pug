@@ -3,23 +3,41 @@ include mixins/_userTable
 html(lang="en")
     head
         style.
+            button{
+                display: inline-block flex;
+                justify-content: center;
+                justify-content: space-around;
+                flex-direction: row-reverse
+            }
             table {
-                font-family: arial, sans-serif;
                 border-collapse: collapse;
-                max-width: 100%;
+                width: 100%;
             }
-            td, th {
-              border: 1px solid #dddddd;
-              text-align: left;
-              padding: 8px;
+
+            th, td {
+                text-align: left;
+                padding: 8px;
             }
-            tr:nth-child(even) {
-              background-color: #dddddd;
+
+            tr:hover {background-color: #f5f5f5;}
+
+            tr:nth-child(even){background-color: #f2f2f2}
+
+            th {
+                background-color: #4CAF50;
+                color: white;
             }
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Offline Users
     body
         +userTable(userArray)
-        form(action="/admin/add")
-            input(type="submit", value="Add")
+        script.
+            function addUser() {
+                window.location.href = '/admin';
+            }
+            function removeUser() {
+                userArray.pop();
+                window.location.href = '/user';
+
+            }

@@ -9,13 +9,10 @@ route.get('/', (req, res) => {
     res.render('index');
 });
 route.get('/admin', userController.addUser);
-route.get('/admin/add', userController.offlineUserStorage);
-route.post('/admin/add', userController.offlineUserStorage);
-
 route.post('/admin', catchErrors(userController.createUser));
 
 route.get('/user', userController.showUsers);
-route.post('/user', catchErrors(userController.offlineUserStorage));
+route.post('/user', catchErrors(userController.showUsers));
 
 
 module.exports = route;

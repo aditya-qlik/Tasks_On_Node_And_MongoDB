@@ -1,13 +1,17 @@
 mixin userTable(usersDetail=[])
-    table
-        tr
-            th Name
-            th Age
-            th City
-            th State
-        each user in usersDetail
-            tr 
-                td user.name
-                td user.age
-                td user.city
-                td user.state
+    if userArray.length != 0
+        table.users
+            tr
+                th Name
+                th Age
+                th City
+                th State
+                each user in usersDetail
+                    tr 
+                        td #{user.name}
+                        td #{user.age}
+                        td #{user.city}
+                        td #{user.state}
+    button.addUsers Add
+        if userArray.length != 0
+            button.removeUser Remove Last

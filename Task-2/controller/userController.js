@@ -8,18 +8,18 @@ exports.addUser = (req, res) => {
 };
 
 exports.createUser = async (req, res) => {
-    console.log("inside createUser")
+    console.log("inside createUser");
     const user = await (new Users(req.body)).save();
     // console.log(req.body);
     console.log(`Successfully added ${user.name} details in DB`);
-    res.redirect('/');
-}
-
-exports.offlineUserStorage = (req,res) => {
-    const user = req.body;
-    console.log(user);
-}
+    userArray.push(user);
+    console.log(userArray);
+    res.redirect('/user');
+};
 
 exports.showUsers = (req,res) => {
-    res.render('userTable', userArray);
-}
+    console.log(userArray);
+    res.render('userTable',{ userArray });
+};
+
+exports.userArray;
