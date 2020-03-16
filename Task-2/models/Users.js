@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
         type: Number,
         trim: true,
         min: [0, "Age can't be -ve "],
-        max: 150,
+        max: 110,
         required: 'Please Enter Your Age.'
     },
     city: {
