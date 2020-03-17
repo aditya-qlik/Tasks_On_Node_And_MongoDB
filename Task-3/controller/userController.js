@@ -14,7 +14,7 @@ exports.createUser = async (req, res) => {
         // Insert the new user if they do not exist yet
         const user = await (new User(req.body)).save();
         console.log(`Successfully added ${user.name} details in DB`);
-        res.redirect('/');
+        res.redirect('/user');
     }
     console.log("inside createUser");
     
