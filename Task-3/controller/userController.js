@@ -7,10 +7,11 @@ exports.addUser = (req, res) => {
 };
 
 exports.createUser = async (req, res) => {
+    res.render('addUser', {title: 'Add Users'});
     console.log("inside createUser");
     const user = await (new Users(req.body)).save();
     console.log(`Successfully added ${user.name} details in DB`);
-    res.redirect('/user');
+    res.redirect('/');
 };
 
 exports.showUsers = async (req,res) => {

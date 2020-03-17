@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     res.render('index');
 });
 router.get('/user', userController.showUsers);
-router.post('/user',  userController.addUser,catchErrors(userController.createUser));
+router.post('/user', catchErrors(userController.createUser));
 router.put('/user', catchErrors(userController.editUsers));
 // router.post('/user', catchErrors(userController.removeUser));
 

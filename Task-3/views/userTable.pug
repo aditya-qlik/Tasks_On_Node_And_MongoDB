@@ -51,7 +51,7 @@ html(lang="en")
                             a(href="" class="edit") Edit
                             a(href="" class="save" style="visibility: hidden")  Save
                             a(href="" class="delete" style="visibility: hidden")  Delete             
-        a(href="/user")               
-            button Add
+        form(action="#", method="post")
+            input(type="submit", value="Add")
         script
             include ../script.js
