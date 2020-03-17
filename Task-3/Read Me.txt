@@ -1,0 +1,11 @@
+To Start the application 
+1. Open Terminal
+2. Go to the folder containing the files
+3. Use "npm start" to run the application
+
+To add user 
+Click add user button on home screen
+ OR
+Click on show user Button then We can use the add button there.
+
+Every time me add a user it is added on the DB as well as the Offline variable
