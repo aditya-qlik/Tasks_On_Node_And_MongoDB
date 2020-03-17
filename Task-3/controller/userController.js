@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Users = mongoose.model('Users');
+const { User, validate } = require('../models/Users');
 
 
 exports.addUser = (req, res) => {
@@ -7,22 +7,28 @@ exports.addUser = (req, res) => {
 };
 
 exports.createUser = async (req, res) => {
-    res.render('addUser', {title: 'Add Users'});
+    let user = await User.findOne({ email: req.body.email });
+    if (user) {
+        return res.status(400).send('That user already exisits!');
+    } else {
+        // Insert the new user if they do not exist yet
+        const user = await (new User(req.body)).save();
+        console.log(`Successfully added ${user.name} details in DB`);
+        res.redirect('/');
+    }
     console.log("inside createUser");
-    const user = await (new Users(req.body)).save();
-    console.log(`Successfully added ${user.name} details in DB`);
-    res.redirect('/');
+    
 };
 
 exports.showUsers = async (req,res) => {
-    const userArray = await Users.find();
+    const userArray = await User.find();
     console.log(userArray);
     res.render('userTable',{ userArray }); 
 };
 
 exports.editUsers = async (req,res) => {
     // console.log(req.query.email);
-    const user = await Users.findOne({email: req.query.email});
+    const user = await User.findOne({email: req.query.email});
     // console.log(user);
     res.render('editUser', { title: `Edit ${user.name}`, user } );
 }

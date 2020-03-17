@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const validator = require('validator');
-const mongodbErrorhandler = require('mongoose-mongodb-errors');
+const mongodbErrorHandler = require('mongoose-mongodb-errors');
+const Joi = require('joi');
 
-const userSchema = new mongoose.Schema({
+const User =mongoose.model('User', new mongoose.Schema({
     name: {
         type: String,
         trim: true,
@@ -33,6 +34,17 @@ const userSchema = new mongoose.Schema({
         required: 'Please Enter an Email Address'
     }
 
-});
+}));
 
-module.exports = mongoose.model('Users', userSchema);
+// userSchema.plugin(mongodbErrorhandler);
+
+function validateUser(user) {
+    const schema = {
+        email: Joi.string().required().email()
+    };
+    return Joi.validate(user, schema);
+}
+
+exports.validate = validateUser;
+
+exports.User = User;
