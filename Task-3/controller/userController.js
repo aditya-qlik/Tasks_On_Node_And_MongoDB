@@ -31,20 +31,21 @@ exports.editUsers = async (req,res) => {
     const user = await User.findOne({email: req.query.email});
     console.log(user);
     res.render('editUser', { title: `Edit ${user.name}`, user } );
-}
+};
 
-exports.updateUser = async (req, res) => {
+exports.updateUser = async (req, res ) => {
     const user = await User.findOneAndUpdate({ email: req.query.email }, req.body, {
         new: true, // return the new store instead of the old one
         runValidators: true
       }).exec();
       console.log(`${user.name} is updated`);
     res.redirect('/user');
-}
+};
 
-exports.deleteUser = async (req, res) => {  
-    await User.findOneAndDelete({ email: req.query.email }, function(err){
+exports.deleteUser =  (req, res ) => { 
+    console.log('inside delete');
+    User.findOneAndRemove({ email: req.query.email }, function(err){
         if(err) console.log(err);
         res.redirect('/user');
-    })
-}
+    }).exec();
+};

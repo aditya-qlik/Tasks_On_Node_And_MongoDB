@@ -13,7 +13,7 @@ router.get('/user/add', catchErrors(userController.addUser));
 router.post('/user', catchErrors(userController.createUser));
 router.put('/user', catchErrors(userController.updateUser));
 router.post('/user/edit', catchErrors(userController.editUsers));
-router.delete('/user', catchErrors(userController.deleteUsers));
+router.delete('/user', catchErrors(userController.deleteUser));
 // router.post('/user', catchErrors(userController.removeUser));
 
 
