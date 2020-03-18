@@ -10,8 +10,10 @@ router.get('/', (req, res) => {
 });
 router.get('/user', userController.showUsers);
 router.get('/user/add', catchErrors(userController.addUser));
-router.post('/user',catchErrors(userController.createUser));
-router.put('/user', catchErrors(userController.editUsers));
+router.post('/user', catchErrors(userController.createUser));
+router.put('/user', catchErrors(userController.updateUser));
+router.post('/user/edit', catchErrors(userController.editUsers));
+router.delete('/user', catchErrors(userController.deleteUsers));
 // router.post('/user', catchErrors(userController.removeUser));
 
 

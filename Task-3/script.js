@@ -1,17 +1,10 @@
-// const mongoose = require('mongoose');
-// const Users = mongoose.model('Users');
+const forms = document.querySelectorAll('.editForm');
+const editTable = document.querySelector('.editTable');
 
-// const emailInput = document.querySelector('#email');
+function editUser(){
+    forms.forEach ((form) => {
+    form.style.visibility = "visible";
+    })
+}
 
-// console.log('it works')
-
-// async function checkEmail(){
-//     const userEmail = emailInput.value;
-//     const check = Users.find({email: userEmail});
-//     if (check) {
-//         alert('Email Already Exists');
-//     }
-//     emailInput.value='';
-// }
-
-// emailInput.addEventListener('blur', checkEmail)
+editTable.addEventListener('click', editUser)

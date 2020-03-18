@@ -2,6 +2,10 @@
 html(lang="en")
     head
         style.
+            form {
+                display: inline-block; //Or display: inline; 
+            }
+
             button, form {
                 display: inline-block flex;
                 justify-content: center;
@@ -46,12 +50,16 @@ html(lang="en")
                         td #{user.age}
                         td #{user.city}
                         td #{user.state}
-                        td #{user.email}
+                        td.email #{user.email}
                         td 
-                            a(href="" class="edit") Edit
-                            a(href="" class="save" style="visibility: hidden")  Save
-                            a(href="" class="delete" style="visibility: hidden")  Delete             
+                            form(action=`/user/edit?email=${user.email}` method="POST" class="editForm" style="visibility: hidden")
+                                input(type="submit", value="Edit")
+                            form(action=`/user?email=${user.email}` method="POST" enctype="application/x-www-form-urlencoded" class="editForm" style="visibility: hidden")
+                                input( type="hidden" name="_method" value="DELETE")
+                                input(type="submit", value="Delete")
+                                         
         a(href="/user/add")               
             button Add
+        button.editTable Edit
         script
             include ../script.js

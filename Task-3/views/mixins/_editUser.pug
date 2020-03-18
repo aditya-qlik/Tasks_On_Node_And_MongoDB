@@ -1,5 +1,6 @@
 mixin editUsersForm(user ={})
-    form.form(action="/" method="POST")
+    form.form(action=`/user?email=${user.email}` method="POST" enctype="application/x-www-form-urlencoded")
+        input( type="hidden" name="_method" value="PUT")
         h2 Enter Your details
         label(for="name") Name: 
         input(type="text" name="name" id="userName" value = user.name)
