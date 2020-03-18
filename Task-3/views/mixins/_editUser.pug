@@ -11,6 +11,6 @@ mixin editUsersForm(user ={})
         label(for="state") State: 
         input(type="text" name="state" id="state" value = user.state)
         label(for="email") Email Address:
-        input(type="email", name="email" id="email" value = user.email)
+        input(type="email", name="email" id="email" value = user.email disabled)
         br
         input.button(type="submit" value="Submit →")

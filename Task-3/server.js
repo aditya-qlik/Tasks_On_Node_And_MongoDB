@@ -3,7 +3,7 @@ require('./models/Users');
 require('dotenv').config({path: 'variables.env'});
 
 const connectDB = async () => {
-    await mongoose.connect(`${process.env.DATABASE}qliktagInterns`, {
+    await mongoose.connect(`${process.env.DATABASE}`, {
         useUnifiedTopology: true,
         useNewUrlParser: true
     }, (err) => {
