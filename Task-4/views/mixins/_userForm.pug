@@ -1,0 +1,17 @@
+mixin addUsersForm()
+    form.form(action="/user" method="POST")
+        h2 Enter Your details
+        label(for="name") Name: 
+        input(type="text" name="name" id="userName")
+        label(for="age") Age:
+        input(type="number" name="age" id="age" )
+        label(for="city") City: 
+        input(type="text" name="city" id="city")
+        label(for="state") State: 
+        input(type="text" name="state" id="state")
+        label(for="email") Email Address:
+        input(type="email", name="email" id="email")
+        br
+        input.button(type="submit" value="Submit →")
+        script
+            include ../../script.js

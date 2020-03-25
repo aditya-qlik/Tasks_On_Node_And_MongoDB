@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        style.
+            form {
+                display: inline-block; //Or display: inline; 
+            }
+
+            button, form {
+                display: inline-block flex;
+                justify-content: center;
+                justify-content: space-around;
+                flex-direction: row-reverse
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th, td {
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:hover {background-color: #f5f5f5;}
+
+            tr:nth-child(even){background-color: #f2f2f2}
+
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Offline Users
+    body
+        if userArray.length != 0
+            table.users
+                tr
+                    th Name
+                    th Age
+                    th City
+                    th State
+                    th Email
+                    th
+                each user in userArray
+                    tr 
+                        td #{user.name}
+                        td #{user.age}
+                        td #{user.city}
+                        td #{user.state}
+                        td.email #{user.email}
+                        td 
+                            form(action=`/user/edit?email=${user.email}` method="POST" class="editForm" style="visibility: hidden")
+                                input(type="submit", value="Edit")
+                            form(action=`/user?email=${user.email}` method="POST" enctype="application/x-www-form-urlencoded" class="editForm" style="visibility: hidden")
+                                input( type="hidden" name="_method" value="DELETE")
+                                input(type="submit", value="Delete")
+                                         
+        a(href="/user/add")               
+            button Add
+        button.editTable Edit
+        script
+            include ../script.js

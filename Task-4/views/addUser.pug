@@ -1,0 +1,19 @@
+
+include mixins/_userForm
+<!DOCTYPE html>
+html(lang="en")
+  head
+    style.
+          .inner .form {
+              display: flex;
+              flex-direction: column;
+              max-width: 100%;
+          }
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{title}
+  body
+    .inner
+      h2  #{title}
+      +addUsersForm()
+    
